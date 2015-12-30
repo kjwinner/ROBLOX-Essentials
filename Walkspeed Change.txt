@@ -1,0 +1,12 @@
+function whenTouched(part) 
+
+person = part.Parent:findFirstChild("Humanoid") 
+
+if person ~= nil then 
+	person.WalkSpeed = 0 --Change this number to however fast you want the brick to make you walk. 
+end
+		                       
+end
+
+
+script.Parent.Touched:connect(whenTouched)

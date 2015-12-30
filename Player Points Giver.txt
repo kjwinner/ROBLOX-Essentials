@@ -1,0 +1,20 @@
+-- declare service
+local PointsService = Game:GetService("PointsService")
+ 
+-- Bind function to player added event
+game.Players.PlayerAdded:connect(function(player)
+	-- Get total number of points the game has available
+	local pointsToAward = PointsService:GetAwardablePoints()
+	-- Get total number of points this game has already awarded to the player
+	local universeBalance = PointsService:GetGamePointBalance(player.userId)
+	-- Check if the game has points to award and if the player hasn't gotten any points yet. If both are true, then give the player a point.
+	if ( pointsToAward > 0 and universeBalance == 0) then
+		wait(600)
+		PointsService:AwardPoints(player.userId, 1)
+	end
+end)
+ 
+-- Bind function to when points are successfully awarded
+PointsService.PointsAwarded:connect(function(userId, userBalanceinUni, userBalance)
+	-- Show message indicating that a player has gotten points
+end)

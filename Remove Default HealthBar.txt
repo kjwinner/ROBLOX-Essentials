@@ -1,0 +1,10 @@
+while true do
+for inx, val in pairs(game.Players:GetPlayers()) do 
+if val:FindFirstChild("PlayerGui") then 
+if val.PlayerGui:FindFirstChild("HealthGUI") then 
+val.PlayerGui.HealthGUI:Remove() 
+end 
+end 
+end 
+wait()
+end
